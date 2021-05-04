@@ -33,14 +33,6 @@ app.get('/', (request, response) => {
 		})
 })
 
-function filtrarContenido(str){
-    let patt = new RegExp("^[0-9]+\;[0-9]+\;\"(.*)\"\;[a-z]+");
-    let arr = str.match(patt);
-    let nombre = arr[1];
-    console.log(nombre);
-    return nombre; 
-}
-
 function busqueda(arr, idx){
     if(arr[idx] === "") { //caso base de la recursion
         console.log(arr[idx] + "esta es una cadena vacia");
@@ -56,4 +48,12 @@ function busqueda(arr, idx){
             busqueda(arr, idx);
         });
     }
+}
+
+function filtrarContenido(str){
+    let patt = new RegExp("^[0-9]+\;[0-9]+\;\"(.*)\"\;[a-z]+");
+    let arr = str.match(patt);
+    let nombre = arr[1];
+    console.log(nombre);
+    return nombre; 
 }
